@@ -140,6 +140,11 @@ function detectDiagramLanguageByElement(el, checkParentToo) {
 	if (lang) 
 		return lang;
 
+	// Check for "data-language=" attribute.
+	lang = el.getAttribute("data-language");
+	if (lang) 
+		return lang;
+	
 	// Check for "language-", "lang-" classes.
 	el.className.split(' ').some(function(cl) {
 		if (cl.substr(0, "language-".length) == "language-") {
